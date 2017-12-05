@@ -42,10 +42,10 @@ RM = "C:\Program Files\JetBrains\CLion 2017.2.2\bin\cmake\bin\cmake.exe" -E remo
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = F:\C\Project\LibrarySystem
+CMAKE_SOURCE_DIR = C:\Users\Nour\CLionProjects\LBSGit
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = F:\C\Project\LibrarySystem\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\Nour\CLionProjects\LBSGit\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/LibrarySystem.dir/depend.make
@@ -58,16 +58,16 @@ include CMakeFiles/LibrarySystem.dir/flags.make
 
 CMakeFiles/LibrarySystem.dir/main.c.obj: CMakeFiles/LibrarySystem.dir/flags.make
 CMakeFiles/LibrarySystem.dir/main.c.obj: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\C\Project\LibrarySystem\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/LibrarySystem.dir/main.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LibrarySystem.dir\main.c.obj   -c F:\C\Project\LibrarySystem\main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Nour\CLionProjects\LBSGit\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/LibrarySystem.dir/main.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LibrarySystem.dir\main.c.obj   -c C:\Users\Nour\CLionProjects\LBSGit\main.c
 
 CMakeFiles/LibrarySystem.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LibrarySystem.dir/main.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E F:\C\Project\LibrarySystem\main.c > CMakeFiles\LibrarySystem.dir\main.c.i
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Nour\CLionProjects\LBSGit\main.c > CMakeFiles\LibrarySystem.dir\main.c.i
 
 CMakeFiles/LibrarySystem.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LibrarySystem.dir/main.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S F:\C\Project\LibrarySystem\main.c -o CMakeFiles\LibrarySystem.dir\main.c.s
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Nour\CLionProjects\LBSGit\main.c -o CMakeFiles\LibrarySystem.dir\main.c.s
 
 CMakeFiles/LibrarySystem.dir/main.c.obj.requires:
 
@@ -82,16 +82,16 @@ CMakeFiles/LibrarySystem.dir/main.c.obj.provides.build: CMakeFiles/LibrarySystem
 
 CMakeFiles/LibrarySystem.dir/Admin.c.obj: CMakeFiles/LibrarySystem.dir/flags.make
 CMakeFiles/LibrarySystem.dir/Admin.c.obj: ../Admin.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\C\Project\LibrarySystem\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/LibrarySystem.dir/Admin.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LibrarySystem.dir\Admin.c.obj   -c F:\C\Project\LibrarySystem\Admin.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Nour\CLionProjects\LBSGit\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/LibrarySystem.dir/Admin.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LibrarySystem.dir\Admin.c.obj   -c C:\Users\Nour\CLionProjects\LBSGit\Admin.c
 
 CMakeFiles/LibrarySystem.dir/Admin.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LibrarySystem.dir/Admin.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E F:\C\Project\LibrarySystem\Admin.c > CMakeFiles\LibrarySystem.dir\Admin.c.i
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Nour\CLionProjects\LBSGit\Admin.c > CMakeFiles\LibrarySystem.dir\Admin.c.i
 
 CMakeFiles/LibrarySystem.dir/Admin.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LibrarySystem.dir/Admin.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S F:\C\Project\LibrarySystem\Admin.c -o CMakeFiles\LibrarySystem.dir\Admin.c.s
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Nour\CLionProjects\LBSGit\Admin.c -o CMakeFiles\LibrarySystem.dir\Admin.c.s
 
 CMakeFiles/LibrarySystem.dir/Admin.c.obj.requires:
 
@@ -106,16 +106,16 @@ CMakeFiles/LibrarySystem.dir/Admin.c.obj.provides.build: CMakeFiles/LibrarySyste
 
 CMakeFiles/LibrarySystem.dir/Book.c.obj: CMakeFiles/LibrarySystem.dir/flags.make
 CMakeFiles/LibrarySystem.dir/Book.c.obj: ../Book.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\C\Project\LibrarySystem\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/LibrarySystem.dir/Book.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LibrarySystem.dir\Book.c.obj   -c F:\C\Project\LibrarySystem\Book.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Nour\CLionProjects\LBSGit\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/LibrarySystem.dir/Book.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LibrarySystem.dir\Book.c.obj   -c C:\Users\Nour\CLionProjects\LBSGit\Book.c
 
 CMakeFiles/LibrarySystem.dir/Book.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LibrarySystem.dir/Book.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E F:\C\Project\LibrarySystem\Book.c > CMakeFiles\LibrarySystem.dir\Book.c.i
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Nour\CLionProjects\LBSGit\Book.c > CMakeFiles\LibrarySystem.dir\Book.c.i
 
 CMakeFiles/LibrarySystem.dir/Book.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LibrarySystem.dir/Book.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S F:\C\Project\LibrarySystem\Book.c -o CMakeFiles\LibrarySystem.dir\Book.c.s
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Nour\CLionProjects\LBSGit\Book.c -o CMakeFiles\LibrarySystem.dir\Book.c.s
 
 CMakeFiles/LibrarySystem.dir/Book.c.obj.requires:
 
@@ -130,16 +130,16 @@ CMakeFiles/LibrarySystem.dir/Book.c.obj.provides.build: CMakeFiles/LibrarySystem
 
 CMakeFiles/LibrarySystem.dir/MeM.c.obj: CMakeFiles/LibrarySystem.dir/flags.make
 CMakeFiles/LibrarySystem.dir/MeM.c.obj: ../MeM.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\C\Project\LibrarySystem\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/LibrarySystem.dir/MeM.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LibrarySystem.dir\MeM.c.obj   -c F:\C\Project\LibrarySystem\MeM.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Nour\CLionProjects\LBSGit\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/LibrarySystem.dir/MeM.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LibrarySystem.dir\MeM.c.obj   -c C:\Users\Nour\CLionProjects\LBSGit\MeM.c
 
 CMakeFiles/LibrarySystem.dir/MeM.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LibrarySystem.dir/MeM.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E F:\C\Project\LibrarySystem\MeM.c > CMakeFiles\LibrarySystem.dir\MeM.c.i
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Nour\CLionProjects\LBSGit\MeM.c > CMakeFiles\LibrarySystem.dir\MeM.c.i
 
 CMakeFiles/LibrarySystem.dir/MeM.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LibrarySystem.dir/MeM.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S F:\C\Project\LibrarySystem\MeM.c -o CMakeFiles\LibrarySystem.dir\MeM.c.s
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Nour\CLionProjects\LBSGit\MeM.c -o CMakeFiles\LibrarySystem.dir\MeM.c.s
 
 CMakeFiles/LibrarySystem.dir/MeM.c.obj.requires:
 
@@ -170,7 +170,7 @@ LibrarySystem.exe: CMakeFiles/LibrarySystem.dir/build.make
 LibrarySystem.exe: CMakeFiles/LibrarySystem.dir/linklibs.rsp
 LibrarySystem.exe: CMakeFiles/LibrarySystem.dir/objects1.rsp
 LibrarySystem.exe: CMakeFiles/LibrarySystem.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=F:\C\Project\LibrarySystem\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable LibrarySystem.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Nour\CLionProjects\LBSGit\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable LibrarySystem.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\LibrarySystem.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -190,6 +190,6 @@ CMakeFiles/LibrarySystem.dir/clean:
 .PHONY : CMakeFiles/LibrarySystem.dir/clean
 
 CMakeFiles/LibrarySystem.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" F:\C\Project\LibrarySystem F:\C\Project\LibrarySystem F:\C\Project\LibrarySystem\cmake-build-debug F:\C\Project\LibrarySystem\cmake-build-debug F:\C\Project\LibrarySystem\cmake-build-debug\CMakeFiles\LibrarySystem.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\Nour\CLionProjects\LBSGit C:\Users\Nour\CLionProjects\LBSGit C:\Users\Nour\CLionProjects\LBSGit\cmake-build-debug C:\Users\Nour\CLionProjects\LBSGit\cmake-build-debug C:\Users\Nour\CLionProjects\LBSGit\cmake-build-debug\CMakeFiles\LibrarySystem.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/LibrarySystem.dir/depend
 

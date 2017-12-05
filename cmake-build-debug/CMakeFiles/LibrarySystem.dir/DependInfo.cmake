@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "F:/C/Project/LibrarySystem/Admin.c" "F:/C/Project/LibrarySystem/cmake-build-debug/CMakeFiles/LibrarySystem.dir/Admin.c.obj"
-  "F:/C/Project/LibrarySystem/Book.c" "F:/C/Project/LibrarySystem/cmake-build-debug/CMakeFiles/LibrarySystem.dir/Book.c.obj"
-  "F:/C/Project/LibrarySystem/MeM.c" "F:/C/Project/LibrarySystem/cmake-build-debug/CMakeFiles/LibrarySystem.dir/MeM.c.obj"
-  "F:/C/Project/LibrarySystem/main.c" "F:/C/Project/LibrarySystem/cmake-build-debug/CMakeFiles/LibrarySystem.dir/main.c.obj"
+  "C:/Users/Nour/CLionProjects/LBSGit/Admin.c" "C:/Users/Nour/CLionProjects/LBSGit/cmake-build-debug/CMakeFiles/LibrarySystem.dir/Admin.c.obj"
+  "C:/Users/Nour/CLionProjects/LBSGit/Book.c" "C:/Users/Nour/CLionProjects/LBSGit/cmake-build-debug/CMakeFiles/LibrarySystem.dir/Book.c.obj"
+  "C:/Users/Nour/CLionProjects/LBSGit/MeM.c" "C:/Users/Nour/CLionProjects/LBSGit/cmake-build-debug/CMakeFiles/LibrarySystem.dir/MeM.c.obj"
+  "C:/Users/Nour/CLionProjects/LBSGit/main.c" "C:/Users/Nour/CLionProjects/LBSGit/cmake-build-debug/CMakeFiles/LibrarySystem.dir/main.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

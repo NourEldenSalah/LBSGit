@@ -53,10 +53,10 @@ RM = "C:\Program Files\JetBrains\CLion 2017.2.2\bin\cmake\bin\cmake.exe" -E remo
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = F:\C\Project\LibrarySystem
+CMAKE_SOURCE_DIR = C:\Users\Nour\CLionProjects\LBSGit
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = F:\C\Project\LibrarySystem\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\Nour\CLionProjects\LBSGit\cmake-build-debug
 
 #=============================================================================
 # Target rules for target CMakeFiles/LibrarySystem.dir
@@ -65,7 +65,7 @@ CMAKE_BINARY_DIR = F:\C\Project\LibrarySystem\cmake-build-debug
 CMakeFiles/LibrarySystem.dir/all:
 	$(MAKE) -f CMakeFiles\LibrarySystem.dir\build.make CMakeFiles/LibrarySystem.dir/depend
 	$(MAKE) -f CMakeFiles\LibrarySystem.dir\build.make CMakeFiles/LibrarySystem.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=F:\C\Project\LibrarySystem\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5 "Built target LibrarySystem"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Nour\CLionProjects\LBSGit\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5 "Built target LibrarySystem"
 .PHONY : CMakeFiles/LibrarySystem.dir/all
 
 # Include target in all.
@@ -75,9 +75,9 @@ all: CMakeFiles/LibrarySystem.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/LibrarySystem.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start F:\C\Project\LibrarySystem\cmake-build-debug\CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Nour\CLionProjects\LBSGit\cmake-build-debug\CMakeFiles 5
 	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/LibrarySystem.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start F:\C\Project\LibrarySystem\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Nour\CLionProjects\LBSGit\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/LibrarySystem.dir/rule
 
 # Convenience name for target.

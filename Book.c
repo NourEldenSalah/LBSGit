@@ -83,7 +83,7 @@ void CreateBook(){
     GotoBook();
 }
 
-void Search(char *InPut, int Field){
+void Search(char *InPut){
 
     int I = 0, DataRowCount = FileCounter("Books.txt");
     int Data[2]; // 0: n of copies , 1: av copies
