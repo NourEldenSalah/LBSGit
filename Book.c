@@ -10,14 +10,17 @@ typedef struct {
     char *Author;
     char *Publisher;
     char *ISBN;
+    int NOC,AC; // Num of copies and Available copies
     char *DOP;
     char *Ca;
 }Book;
 
+Book *MyBooks;
+
 
 void GotoBook() {
 
-    int Select;
+    int Select = 0;
 
     printf("\n:::[Book Menu]:::\n\n");
     printf("1.Add New Book\n");
@@ -41,19 +44,14 @@ void GotoBook() {
     if (Select == 1) CreateBook();
     if (Select == 2) main();
     if (Select == 3) main();
-    if (Select == 4) GotoSearch();
+    if (Select == 4) main();
     if (Select == 5) main();
     if (Select == 6) main();
 }
 
-void GotoSearch(){
-
-
-}
-
 void CreateBook(){
 
-    Book B;
+    Book B; int I = 0;
 
     printf("Enter Book Title:");
     B.Title = GetField();
@@ -68,80 +66,37 @@ void CreateBook(){
     printf("\nEnter Category:");
     B.Ca = GetField();
 
-    FILE *Temp_NB = fopen("Temp_NB.txt","a+");
 
-    fprintf(Temp_NB, "%s,%s,%s,%s,%s,%s\n", B.Title, B.Author, B.Publisher, B.ISBN, B.DOP, B.Ca);
-    fclose(Temp_NB);
 
-    free(B.Title);
-    free(B.Author);
-    free(B.Publisher);
-    free(B.ISBN);
-    free(B.DOP);
-    free(B.Ca);
+    //p1 = (Product*)realloc(p1, tam * sizeof(Product));
+
+
 
     GotoBook();
 }
 
-void Search(char *InPut){
+int Search(char *InPut){
 
-    int I = 0, DataRowCount = FileCounter("Books.txt");
-    int Data[2]; // 0: n of copies , 1: av copies
-    char Line[512], *Value;
-    FILE *BookFile;
+    int I = 0; int Found = false;
 
-    /*
-     *     char *Title;
-    char *Author;
-    char *Publisher;
-    char *ISBN;
-    char *DOP;
-    char *Ca;
-    */
-    BookFile = fopen("Books.txt","r");
+    while (!(MyBooks[I].Title)){
 
-    while (fgets(Line,512, BookFile)) {
-
-        if(Field == 1)
+        if (strstr(MyBooks[I].Title, InPut) != NULL ||
+                strstr(MyBooks[I].Author, InPut) != NULL ||
+                strstr(MyBooks[I].Publisher, InPut) != NULL ||
+                strstr(MyBooks[I].ISBN, InPut) != NULL ||
+                strstr(MyBooks[I].DOP, InPut) != NULL ||
+                strstr(MyBooks[I].Ca, InPut) != NULL)
         {
-            if (strstr(strtok(Line,", "),InPut) != NULL)
-            {
-                printf("Title: %s\n");
-                printf("Author: %s\n");
-                printf("Publisher: %s\n");
-                printf("ISBN: %s\n");
-                printf("DOP: %s\n");
-                printf("Number Of Copies: %d\n");
-                printf("Available Copies: %d\n");
-                printf("Category: %s\n");
-                printf("--------------------------\n");
-            }
+            Found = true;
+            printf("%s, %s, %s, %s, %s, %d, %d, %s",MyBooks[I].Title, MyBooks[I].Author, MyBooks[I].Publisher,
+                   MyBooks[I].ISBN, MyBooks[I].DOP, MyBooks[I].NOC, MyBooks[I].AC, MyBooks[I].Ca);
         }
-        if(Field == 2)
-        {
 
-        }
-        if(Field == 3)
-        {
-
-        }
-        if(Field == 4)
-        {
-
-        }
-        if(Field == 5)
-        {
-
-        }
-        if(Field == 6)
-        {
-
-        }
+        I++;
     }
 
-
-    free(Value);
-    fclose(BookFile);
+    return Found;
 }
 
 char *GetField(){
@@ -174,6 +129,58 @@ char *GetField(){
 // Check ISBN Before add
 // handle all files errors
 // free all pointers
+
+void Load_Books(){
+
+    int I = 0 ,DataRowCount = FileCounter("Books.txt");
+    char Line[512], *Value = NULL;
+    FILE *BookFile = fopen("Books.txt","r");
+    MyBooks  = malloc(sizeof(Book)*DataRowCount);
+
+    while (fgets(Line,512, BookFile)){
+
+        //Title
+        Value = strtok(Line, ",");
+        MyBooks[I].Title = malloc(strlen(Value) + 1);
+        strcpy(MyBooks[I].Title, Value);
+
+        //Author
+        Value = strtok(NULL, ",");
+        MyBooks[I].Author = malloc(strlen(Value) + 1);
+        strcpy(MyBooks[I].Author, Value);
+
+        //Publisher
+        Value = strtok(NULL, ",");
+        MyBooks[I].Publisher = malloc(strlen(Value) + 1);
+        strcpy(MyBooks[I].Publisher, Value);
+
+        //ISBN
+        Value = strtok(NULL, ",");
+        MyBooks[I].ISBN = malloc(strlen(Value) + 1);
+        strcpy(MyBooks[I].ISBN, Value);
+
+        //DOP
+        Value = strtok(NULL, ",");
+        MyBooks[I].DOP = malloc(strlen(Value) + 1);
+        strcpy(MyBooks[I].DOP, Value);
+
+        //NOC
+        sscanf(strtok(NULL, ","), "%d", &MyBooks[I].NOC);
+
+        //AC
+        sscanf(strtok(NULL, ","), "%d", &MyBooks[I].AC);
+
+        //Ca
+        Value = strtok(NULL, ",");
+        MyBooks[I].Ca = malloc(strlen(Value) + 1);
+        strcpy(MyBooks[I].Ca, Value);
+
+        I++;
+    }
+
+    free(Value);
+    fclose(BookFile);
+}
 
 void Save_B(){
 

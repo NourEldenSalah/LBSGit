@@ -1,8 +1,8 @@
 
 
 char *GetField();
-void GotoSearch();
 void GotoBook();
 void CreateBook();
-void Search(char *InPut);
+int Search(char *InPut);
+void Load_Books();
 void Save_B();

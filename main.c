@@ -10,7 +10,9 @@
 
 void main()
 {
-    int Select;
+    Load_Books();
+
+    int Select = 0;
 
     printf("\n:::[Main Menu]:::\n\n");
     printf("1.Book Management\n");
