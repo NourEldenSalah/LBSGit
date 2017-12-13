@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
-#include <conio.h>
+
 #include "main.h"
 #include "Admin.h"
 #include "Book.h"
@@ -21,7 +22,6 @@ void main()
     printf("4.Save Changes\n");
     printf("5.Exit\n");
     printf("------------------------\n");
-
 
     while(Select != 1 && Select != 2 && Select != 3 && Select != 4 && Select != 5)
     {
@@ -47,7 +47,8 @@ void GotoSave() {
 
 // Some Base Methods
 
-char *GetString(){
+
+char *GetString() {
 
     char *Text,Input;
     size_t CH = 1, Index = 0;
@@ -71,7 +72,7 @@ char *GetString(){
     return Text;
 }
 
-int FileCounter(char *FileName){
+int FileCounter(char *FileName) {
 
     FILE* MF = fopen(FileName, "r");
 
@@ -87,6 +88,27 @@ int FileCounter(char *FileName){
     fclose(MF);
 
     return Lines;
+}
+
+char *strcasestr(const char *S, const char *Input) {
+
+    size_t i;
+
+    if (!*Input)
+        return (char*)S;
+
+    for (; *S; S++) {
+        if (toupper(*S) == toupper(*Input)) {
+            for (i = 1;; i++) {
+                if (!Input[i])
+                    return (char*)S;
+                if (toupper(S[i]) != toupper(Input[i]))
+                    break;
+            }
+        }
+    }
+
+    return NULL;
 }
 
 

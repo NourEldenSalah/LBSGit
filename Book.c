@@ -1,7 +1,9 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
+#include <ctype.h>
+
 #include "Book.h"
 #include "main.h"
 
@@ -15,7 +17,9 @@ typedef struct {
     char *Ca;
 }Book;
 
+
 Book *MyBooks;
+int BooksNum = 0;
 
 
 void GotoBook() {
@@ -49,7 +53,7 @@ void GotoBook() {
     if (Select == 6) main();
 }
 
-void CreateBook(){
+void CreateBook() {
 
     Book B; int I = 0;
 
@@ -59,42 +63,91 @@ void CreateBook(){
     B.Author = GetField();
     printf("\nEnter Publisher:");
     B.Publisher = GetField();
-    printf("\nEnter ISBN:");
+    //////////Check ISBN////////////
+    printf("\nEnter Unique ISBN:");
     B.ISBN = GetField();
-    printf("\nEnter Date Of Publication:");
+    while (Search(B.ISBN) > 0)
+    {
+        printf("\nRe-Enter Unique ISBN:");
+        B.ISBN = GetField();
+    }
+    ///////////////////////////////
+    printf("\nEnter Date Of Publication (dd/mm/yy):");
     B.DOP = GetField();
     printf("\nEnter Category:");
     B.Ca = GetField();
 
+    B.AC = 1;
+    B.NOC = 1;
+
+    BooksNum++;
+    MyBooks = (Book*) realloc(MyBooks,BooksNum * sizeof(Book));
 
 
-
-    //p1 = (Product*)realloc(p1, tam * sizeof(Product));
-
+    MyBooks[BooksNum - 1].Title = B.Title;
+    MyBooks[BooksNum - 1].Author = B.Author;
+    MyBooks[BooksNum - 1].Publisher = B.Publisher;
+    MyBooks[BooksNum - 1].ISBN = B.ISBN;
+    MyBooks[BooksNum - 1].DOP = B.DOP;
+    MyBooks[BooksNum - 1].Ca = B.Ca;
+    MyBooks[BooksNum - 1].AC = B.AC;
+    MyBooks[BooksNum - 1].NOC = B.NOC;
 
 
     GotoBook();
 }
 
+void AddCpy(){
+
+    char *ISBN; int Results = false,I,NOC,K = -1;
+
+    printf("Enter The ISBN:");
+    ISBN = GetField();
+
+    printf("\nSearching...");
+
+
+    for (I = 0; I < BooksNum; I++)
+    {
+        if (strcmp(MyBooks[I].ISBN,ISBN) == 0) // Not strcasestr
+        {  K = I; Results = true; break; }
+    }
+
+    if (Results)
+    {
+        printf("\nEnter number of copies:");
+        // scan Noc
+
+        if()
+
+        //validate number
+    }
+    else
+    {
+
+    }
+
+    free(ISBN);
+}
+
 int Search(char *InPut){
 
-    int I = 0; int Found = false;
+    int I; int Found = 0;
 
-    while (!(MyBooks[I].Title)){
+    for (I = 0; I < BooksNum; I++) {
 
-        if (strstr(MyBooks[I].Title, InPut) != NULL ||
-                strstr(MyBooks[I].Author, InPut) != NULL ||
-                strstr(MyBooks[I].Publisher, InPut) != NULL ||
-                strstr(MyBooks[I].ISBN, InPut) != NULL ||
-                strstr(MyBooks[I].DOP, InPut) != NULL ||
-                strstr(MyBooks[I].Ca, InPut) != NULL)
+        if (strcasestr(MyBooks[I].Title, InPut) != NULL ||
+            strcasestr(MyBooks[I].Author, InPut) != NULL ||
+            strcasestr(MyBooks[I].Publisher, InPut) != NULL ||
+            strcasestr(MyBooks[I].ISBN, InPut) != NULL ||
+            strcasestr(MyBooks[I].DOP, InPut) != NULL ||
+            strcasestr(MyBooks[I].Ca, InPut) != NULL)
         {
-            Found = true;
+            Found++;
             printf("%s, %s, %s, %s, %s, %d, %d, %s",MyBooks[I].Title, MyBooks[I].Author, MyBooks[I].Publisher,
                    MyBooks[I].ISBN, MyBooks[I].DOP, MyBooks[I].NOC, MyBooks[I].AC, MyBooks[I].Ca);
         }
 
-        I++;
     }
 
     return Found;
@@ -125,6 +178,10 @@ char *GetField(){
     return P;
 }
 
+
+// fix choices
+// validate any thing the user enters
+//comments
 // Before Save Check presence of Temp_NB.txt
 // And when the program close delete Temp_NB.txt all Temps and in create book method
 // Check ISBN Before add
@@ -136,7 +193,9 @@ void Load_Books(){
     int I = 0 ,DataRowCount = FileCounter("Books.txt");
     char Line[512], *Value = NULL;
     FILE *BookFile = fopen("Books.txt","r");
-    MyBooks  = malloc(sizeof(Book)*DataRowCount);
+
+    BooksNum = DataRowCount;
+    MyBooks  = malloc(sizeof(Book)*(DataRowCount));
 
     while (fgets(Line,512, BookFile)){
 
@@ -179,69 +238,24 @@ void Load_Books(){
         I++;
     }
 
+
     free(Value);
     fclose(BookFile);
 }
 
 void Save_B(){
 
-    int I = 0, DataRowCount = FileCounter("Temp_NB.txt");
-    char Line[512], *Value;
-    FILE *Temp_NB, *BookFile;
-    Book B[DataRowCount];
-
-    Temp_NB = fopen("Temp_NB.txt","r");
-
-    while (fgets(Line,512, Temp_NB)) {
-
-        Value = strtok(Line, ",");
-        B[I].Title = malloc(strlen(Value) + 1);
-        strcpy(B[I].Title, Value);
-
-        Value = strtok(NULL, ",");
-        B[I].Author = malloc(strlen(Value) + 1);
-        strcpy(B[I].Author, Value);
-
-        Value = strtok(NULL, ",");
-        B[I].Publisher = malloc(strlen(Value) + 1);
-        strcpy(B[I].Publisher, Value);
-
-        Value = strtok(NULL, ",");
-        B[I].ISBN = malloc(strlen(Value) + 1);
-        strcpy(B[I].ISBN, Value);
-
-        Value = strtok(NULL, ",");
-        B[I].DOP = malloc(strlen(Value) + 1);
-        strcpy(B[I].DOP, Value);
-
-        Value = strtok(NULL, ",");
-        B[I].Ca = malloc(strlen(Value) + 1);
-        strcpy(B[I].Ca, Value);
-
-        I++;
-    }
+    int I;
+    FILE *BookFile;
 
     BookFile = fopen("Books.txt","a+");
 
-    for ( I = 0; I < DataRowCount; ++I) {
-
-        fprintf(BookFile, "%s, %s, %s, %s, %s, 1, 1, %s", B[I].Title, B[I].Author, B[I].Publisher, B[I].ISBN, B[I].DOP, B[I].Ca);
+    for (I = 0; I < BooksNum; ++I)
+    {
+        fprintf(BookFile, "%s, %s, %s, %s, %s, %d, %d, %s", MyBooks[I].Title, MyBooks[I].Author, MyBooks[I].Publisher, MyBooks[I].ISBN, MyBooks[I].DOP, MyBooks[I].NOC, MyBooks[I].AC, MyBooks[I].Ca);
     }
-
-    for ( I = 0; I < DataRowCount; ++I) {
-
-        free(B[I].Title);
-        free(B[I].Author);
-        free(B[I].Publisher);
-        free(B[I].ISBN);
-        free(B[I].DOP);
-        free(B[I].Ca);
-    }
-    free(Value);
 
     fclose(BookFile);
-    fclose(Temp_NB);
-    remove("Temp_NB.txt");
 }
 
 
