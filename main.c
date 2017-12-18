@@ -1,115 +1,70 @@
-#include <stdio.h>
 #include <ctype.h>
-#include <string.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+#include<stdlib.h>
+#include<string.h>
 
-#include "main.h"
-#include "Admin.h"
-#include "Book.h"
-#include "MeM.h"
-
+int validate_number(int n);
+int validate_string (char x[30]);
 
 void main()
 {
-    Load_Books();
+    char x[30];
+    int n,h,z;
 
-    int Select = 0;
+    do{
+    scanf("%d",&n);
+    h=validate_number(n);
+    }while (h==1);
 
-    printf("\n:::[Main Menu]:::\n\n");
-    printf("1.Book Management\n");
-    printf("2.Member Management\n");
-    printf("3.Administrative actions\n");
-    printf("4.Save Changes\n");
-    printf("5.Exit\n");
-    printf("------------------------\n");
+    do{
+    gets(x);
+    gets(x);
+    z=validate_string(x);
+    }while (z==1);
 
-    while(Select != 1 && Select != 2 && Select != 3 && Select != 4 && Select != 5)
+    getch();
+}
+
+int validate_number(int n)
+{
+    int i,c=0,j;
+    for (i=0;i<9;i++)
+{
+    j=n%10;
+    n=n/10;
+    c++;
+    if (isalpha(j))
     {
-        printf("Enter your choice: ");
-        scanf("%d",&Select);
+    printf("Invalid Phone Number\n");
+    return 1;
     }
-
-    system("@cls||clear");
-
-    if (Select == 1) GotoBook();
-    if (Select == 2) GotoMeM();
-    if (Select == 3) GotoAdmin();
-    if (Select == 4) GotoSave();
-    if (Select == 5) exit(0);
+}
+if (c+2!=11||n!=01)
+{
+    printf("Invalid Phone Number\n");
+    return 1;
+}
+else
+    return 0;
 }
 
-void GotoSave() {
-
-    Save_B();
-
-    exit(0);
-}
-
-// Some Base Methods
-
-
-char *GetString() {
-
-    char *Text,Input;
-    size_t CH = 1, Index = 0;
-
-    Text = malloc(sizeof(char)*CH);
-    if(!Text) return NULL;
-
-
-    while((Input = getchar()) != '\n' && Input != EOF) {
-
-        Text = realloc(Text, CH++ * sizeof(char));
-        if(!Text) return NULL;
-
-        Text[Index++] = Input;
-    }
-
-    Text[Index] = '\0';
-
-    if(Text[0] =='\0') { free(Text); return NULL; }
-
-    return Text;
-}
-
-int FileCounter(char *FileName) {
-
-    FILE* MF = fopen(FileName, "r");
-
-    int ch, Lines = 0;
-
-    do
+int validate_string(char x[30])
+{
+ int i,y=0,p;
+ p=strlen(x);
+    for (i = 0; i < p ; i++)
     {
-        ch = fgetc(MF);
-        if(ch == '\n') Lines++;
-
-    } while (ch != EOF);
-
-    fclose(MF);
-
-    return Lines;
-}
-
-char *strcasestr(const char *S, const char *Input) {
-
-    size_t i;
-
-    if (!*Input)
-        return (char*)S;
-
-    for (; *S; S++) {
-        if (toupper(*S) == toupper(*Input)) {
-            for (i = 1;; i++) {
-                if (!Input[i])
-                    return (char*)S;
-                if (toupper(S[i]) != toupper(Input[i]))
-                    break;
-            }
+        if ((x[i] >= 'a' && x[i] <= 'z') || (x[i] >= 'A' && x[i] <= 'Z') || (x[i] == ' '))
+        {
+            continue;
+        }
+        else
+        {
+    printf("Invalid Text\n");
+    return 1;
         }
     }
 
-    return NULL;
 }
-
-
-
