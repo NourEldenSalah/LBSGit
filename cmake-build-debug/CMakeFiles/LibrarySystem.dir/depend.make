@@ -7,7 +7,9 @@ CMakeFiles/LibrarySystem.dir/Book.c.obj: ../Book.c
 CMakeFiles/LibrarySystem.dir/Book.c.obj: ../Book.h
 CMakeFiles/LibrarySystem.dir/Book.c.obj: ../main.h
 
+CMakeFiles/LibrarySystem.dir/MeM.c.obj: ../Book.h
 CMakeFiles/LibrarySystem.dir/MeM.c.obj: ../MeM.c
+CMakeFiles/LibrarySystem.dir/MeM.c.obj: ../main.h
 
 CMakeFiles/LibrarySystem.dir/main.c.obj: ../Admin.h
 CMakeFiles/LibrarySystem.dir/main.c.obj: ../Book.h
