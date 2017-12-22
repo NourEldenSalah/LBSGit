@@ -8,10 +8,35 @@
 #include "Book.h"
 #include "MeM.h"
 
+// validate any allocation
+
+//Redirect(); you and omar
+// Validate DOP IN Find , Create New Book
+// fix choices
+// validate any thing the user enters for each fn ( Date yy //bb//b) in create and edit
+//comments
+// Before Save Check presence of Temp_NB.txt
+// And when the program close delete Temp_NB.txt all Temps and in create book method
+// Check ISBN Before add
+// handle all files errors
+// free all pointers
+// when program runs stop popular and others from work if books num is zero
+
+
+int FirstTime = true;
+int Saved = false;
 
 void main() {
 
-    Load_Books();
+    if(FirstTime)
+    {
+        Load_Books();
+        Load_Borrow();
+        Load_User();
+
+        FirstTime = false;
+    }
+
 
     int Select = 0;
 
@@ -22,6 +47,8 @@ void main() {
     printf("4.Save Changes\n");
     printf("5.Exit\n");
     printf("------------------------\n");
+
+    POP();
 
     while (Select != 1 && Select != 2 && Select != 3 && Select != 4 && Select != 5) {
         printf("Enter your choice: ");
@@ -40,6 +67,8 @@ void main() {
 void GotoSave() {
 
     Save_B();
+    Save_Borrows();
+    Save_Mem();
 
     exit(0);
 }
@@ -66,6 +95,7 @@ void Redirect() {
     printf("1.Book Management\n");
     printf("2.Member Management\n");
     printf("3.Administrative actions\n");
+    printf("4.Main Menu\n");
     printf("------------------------\n");
 
     /* Validation */
@@ -75,7 +105,7 @@ void Redirect() {
 
     while (!IsNumber(CChoice)) { free(CChoice); CChoice = GetField(); }
     sscanf(CChoice, "%d", &Choice);
-    while (Choice <= 0 || Choice > 3) { free(CChoice); goto Here; }
+    while (Choice <= 0 || Choice > 4) { free(CChoice); goto Here; }
 
     /********************************************************/
 
@@ -84,6 +114,7 @@ void Redirect() {
     if (Choice == 1) GotoBook();
     if (Choice == 2) GotoMeM();
     if (Choice == 3) GotoAdmin();
+    if (Choice == 4) main();
 }
 
 char *GetString() {

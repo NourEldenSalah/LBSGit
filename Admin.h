@@ -1,7 +1,1 @@
-
-
-
-void GotoAdmin()
-{
-
-}
+void GotoAdmin();

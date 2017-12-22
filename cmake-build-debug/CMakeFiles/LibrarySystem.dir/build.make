@@ -80,33 +80,9 @@ CMakeFiles/LibrarySystem.dir/main.c.obj.provides: CMakeFiles/LibrarySystem.dir/m
 CMakeFiles/LibrarySystem.dir/main.c.obj.provides.build: CMakeFiles/LibrarySystem.dir/main.c.obj
 
 
-CMakeFiles/LibrarySystem.dir/Admin.c.obj: CMakeFiles/LibrarySystem.dir/flags.make
-CMakeFiles/LibrarySystem.dir/Admin.c.obj: ../Admin.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Nour\CLionProjects\LBSGit\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/LibrarySystem.dir/Admin.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LibrarySystem.dir\Admin.c.obj   -c C:\Users\Nour\CLionProjects\LBSGit\Admin.c
-
-CMakeFiles/LibrarySystem.dir/Admin.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LibrarySystem.dir/Admin.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Nour\CLionProjects\LBSGit\Admin.c > CMakeFiles\LibrarySystem.dir\Admin.c.i
-
-CMakeFiles/LibrarySystem.dir/Admin.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LibrarySystem.dir/Admin.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Nour\CLionProjects\LBSGit\Admin.c -o CMakeFiles\LibrarySystem.dir\Admin.c.s
-
-CMakeFiles/LibrarySystem.dir/Admin.c.obj.requires:
-
-.PHONY : CMakeFiles/LibrarySystem.dir/Admin.c.obj.requires
-
-CMakeFiles/LibrarySystem.dir/Admin.c.obj.provides: CMakeFiles/LibrarySystem.dir/Admin.c.obj.requires
-	$(MAKE) -f CMakeFiles\LibrarySystem.dir\build.make CMakeFiles/LibrarySystem.dir/Admin.c.obj.provides.build
-.PHONY : CMakeFiles/LibrarySystem.dir/Admin.c.obj.provides
-
-CMakeFiles/LibrarySystem.dir/Admin.c.obj.provides.build: CMakeFiles/LibrarySystem.dir/Admin.c.obj
-
-
 CMakeFiles/LibrarySystem.dir/Book.c.obj: CMakeFiles/LibrarySystem.dir/flags.make
 CMakeFiles/LibrarySystem.dir/Book.c.obj: ../Book.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Nour\CLionProjects\LBSGit\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/LibrarySystem.dir/Book.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Nour\CLionProjects\LBSGit\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/LibrarySystem.dir/Book.c.obj"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LibrarySystem.dir\Book.c.obj   -c C:\Users\Nour\CLionProjects\LBSGit\Book.c
 
 CMakeFiles/LibrarySystem.dir/Book.c.i: cmake_force
@@ -130,7 +106,7 @@ CMakeFiles/LibrarySystem.dir/Book.c.obj.provides.build: CMakeFiles/LibrarySystem
 
 CMakeFiles/LibrarySystem.dir/MeM.c.obj: CMakeFiles/LibrarySystem.dir/flags.make
 CMakeFiles/LibrarySystem.dir/MeM.c.obj: ../MeM.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Nour\CLionProjects\LBSGit\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/LibrarySystem.dir/MeM.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Nour\CLionProjects\LBSGit\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/LibrarySystem.dir/MeM.c.obj"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LibrarySystem.dir\MeM.c.obj   -c C:\Users\Nour\CLionProjects\LBSGit\MeM.c
 
 CMakeFiles/LibrarySystem.dir/MeM.c.i: cmake_force
@@ -152,20 +128,44 @@ CMakeFiles/LibrarySystem.dir/MeM.c.obj.provides: CMakeFiles/LibrarySystem.dir/Me
 CMakeFiles/LibrarySystem.dir/MeM.c.obj.provides.build: CMakeFiles/LibrarySystem.dir/MeM.c.obj
 
 
+CMakeFiles/LibrarySystem.dir/Admin.c.obj: CMakeFiles/LibrarySystem.dir/flags.make
+CMakeFiles/LibrarySystem.dir/Admin.c.obj: ../Admin.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Nour\CLionProjects\LBSGit\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/LibrarySystem.dir/Admin.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LibrarySystem.dir\Admin.c.obj   -c C:\Users\Nour\CLionProjects\LBSGit\Admin.c
+
+CMakeFiles/LibrarySystem.dir/Admin.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LibrarySystem.dir/Admin.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Nour\CLionProjects\LBSGit\Admin.c > CMakeFiles\LibrarySystem.dir\Admin.c.i
+
+CMakeFiles/LibrarySystem.dir/Admin.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LibrarySystem.dir/Admin.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Nour\CLionProjects\LBSGit\Admin.c -o CMakeFiles\LibrarySystem.dir\Admin.c.s
+
+CMakeFiles/LibrarySystem.dir/Admin.c.obj.requires:
+
+.PHONY : CMakeFiles/LibrarySystem.dir/Admin.c.obj.requires
+
+CMakeFiles/LibrarySystem.dir/Admin.c.obj.provides: CMakeFiles/LibrarySystem.dir/Admin.c.obj.requires
+	$(MAKE) -f CMakeFiles\LibrarySystem.dir\build.make CMakeFiles/LibrarySystem.dir/Admin.c.obj.provides.build
+.PHONY : CMakeFiles/LibrarySystem.dir/Admin.c.obj.provides
+
+CMakeFiles/LibrarySystem.dir/Admin.c.obj.provides.build: CMakeFiles/LibrarySystem.dir/Admin.c.obj
+
+
 # Object files for target LibrarySystem
 LibrarySystem_OBJECTS = \
 "CMakeFiles/LibrarySystem.dir/main.c.obj" \
-"CMakeFiles/LibrarySystem.dir/Admin.c.obj" \
 "CMakeFiles/LibrarySystem.dir/Book.c.obj" \
-"CMakeFiles/LibrarySystem.dir/MeM.c.obj"
+"CMakeFiles/LibrarySystem.dir/MeM.c.obj" \
+"CMakeFiles/LibrarySystem.dir/Admin.c.obj"
 
 # External object files for target LibrarySystem
 LibrarySystem_EXTERNAL_OBJECTS =
 
 LibrarySystem.exe: CMakeFiles/LibrarySystem.dir/main.c.obj
-LibrarySystem.exe: CMakeFiles/LibrarySystem.dir/Admin.c.obj
 LibrarySystem.exe: CMakeFiles/LibrarySystem.dir/Book.c.obj
 LibrarySystem.exe: CMakeFiles/LibrarySystem.dir/MeM.c.obj
+LibrarySystem.exe: CMakeFiles/LibrarySystem.dir/Admin.c.obj
 LibrarySystem.exe: CMakeFiles/LibrarySystem.dir/build.make
 LibrarySystem.exe: CMakeFiles/LibrarySystem.dir/linklibs.rsp
 LibrarySystem.exe: CMakeFiles/LibrarySystem.dir/objects1.rsp
@@ -179,9 +179,9 @@ CMakeFiles/LibrarySystem.dir/build: LibrarySystem.exe
 .PHONY : CMakeFiles/LibrarySystem.dir/build
 
 CMakeFiles/LibrarySystem.dir/requires: CMakeFiles/LibrarySystem.dir/main.c.obj.requires
-CMakeFiles/LibrarySystem.dir/requires: CMakeFiles/LibrarySystem.dir/Admin.c.obj.requires
 CMakeFiles/LibrarySystem.dir/requires: CMakeFiles/LibrarySystem.dir/Book.c.obj.requires
 CMakeFiles/LibrarySystem.dir/requires: CMakeFiles/LibrarySystem.dir/MeM.c.obj.requires
+CMakeFiles/LibrarySystem.dir/requires: CMakeFiles/LibrarySystem.dir/Admin.c.obj.requires
 
 .PHONY : CMakeFiles/LibrarySystem.dir/requires
 

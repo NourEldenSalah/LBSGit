@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/LibrarySystem.dir/main.c.obj"
-  "CMakeFiles/LibrarySystem.dir/Admin.c.obj"
   "CMakeFiles/LibrarySystem.dir/Book.c.obj"
   "CMakeFiles/LibrarySystem.dir/MeM.c.obj"
+  "CMakeFiles/LibrarySystem.dir/Admin.c.obj"
   "LibrarySystem.pdb"
   "LibrarySystem.exe"
   "LibrarySystem.exe.manifest"

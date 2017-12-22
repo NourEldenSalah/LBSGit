@@ -6,9 +6,11 @@ CMakeFiles/LibrarySystem.dir/Admin.c.obj: ../Admin.c
 CMakeFiles/LibrarySystem.dir/Book.c.obj: ../Book.c
 CMakeFiles/LibrarySystem.dir/Book.c.obj: ../Book.h
 CMakeFiles/LibrarySystem.dir/Book.c.obj: ../main.h
+CMakeFiles/LibrarySystem.dir/Book.c.obj: ../mem.h
 
 CMakeFiles/LibrarySystem.dir/MeM.c.obj: ../Book.h
 CMakeFiles/LibrarySystem.dir/MeM.c.obj: ../MeM.c
+CMakeFiles/LibrarySystem.dir/MeM.c.obj: ../MeM.h
 CMakeFiles/LibrarySystem.dir/MeM.c.obj: ../main.h
 
 CMakeFiles/LibrarySystem.dir/main.c.obj: ../Admin.h
