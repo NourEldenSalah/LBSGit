@@ -25,21 +25,30 @@ void GotoMeM() {
     Books = GetBooks();
 
     int Select = 0;
+    char *CSelect = NULL;
 
     printf("\n:::::[Members Menu]:::::\n\n");
     printf("1.New Member\n");
     printf("2.Remove Member\n");
     printf("3.Edit Member\n");
-    printf("4.Borrowing Book\n");
-    printf("5.Returning Book\n");
+    printf("4.Borrow Book\n");
+    printf("5.Return Book\n");
     printf("6.Main Menu\n");
     printf("------------------------\n");
 
 
-    while (Select != 1 && Select != 2 && Select != 3 && Select != 4 && Select != 5 && Select != 6) {
-        printf("Enter your choice: ");
-        scanf("%d", &Select);
-    }
+    printf("Enter your choice: ");
+
+    /* Validation */
+
+    Here:
+    CSelect = GetField();
+
+    while (!IsNumber(CSelect)) { free(CSelect); CSelect = GetField(); }
+    sscanf(CSelect, "%d", &Select);
+    while (Select <= 0 || Select > 6) { free(CSelect); goto Here; }
+
+    /******************************************************************/
 
     system("@cls||clear");
 
@@ -60,31 +69,40 @@ void NewMember() {
     printf("--------------------\n");
 
     printf("Enter Last Name:");
-    U.LN = GetField();
+    while (!IsString(U.LN = GetField())){ free(U.LN); U.LN = GetField(); }
+
     printf("\nEnter First Name:");
-    U.FN = GetField();
+    while (!IsString(U.FN = GetField())){ free(U.FN); U.FN = GetField(); }
+
     printf("\nEnter Your Age:");
-    U.age = GetField();
+    while (!IsNumber(U.age = GetField())){ free(U.age); U.age = GetField();}
 
     //////////Check ID////////////
+
     printf("\nEnter Unique ID:");
-    U.ID = GetField();
-    while (UExist(U.ID) == 1) {
-        printf("\nRe-Enter Unique ID:");
-        U.ID = GetField();
-    }
+
+    H1:
+    while (!IsNumber(U.ID = GetField())){ free(U.ID); U.ID = GetField();}
+    while (UExist(U.ID) == 1) { free(U.ID); goto H1; }
+
     /////////////////////////////
 
     printf("\nEnter Your Building Number:");
-    U.BN = GetField();
+    while (!IsNumber(U.BN = GetField())){ free(U.BN); U.BN = GetField();}
+
     printf("\nEnter The Area:");
-    U.Area = GetField();
+    while (!IsString(U.Area = GetField())){ free(U.Area); U.Area = GetField(); }
+
     printf("\nEnter Your City:");
-    U.gov = GetField();
+    while (!IsString(U.gov = GetField())){ free(U.gov); U.gov = GetField(); }
+
     printf("\nEnter Your Phone Number:");
+
     U.phone = GetField();
+    while (!IsNumber(U.phone) || strlen(U.phone) != 11){ free(U.phone); U.phone = GetField();}
+
     printf("\nEnter Your E_mail:");
-    U.email = GetField();
+    while (!IsEmail(U.email = GetField())){ free(U.email); U.email = GetField(); }
 
     UsersNumber++;
     MyUsers = (User *) realloc(MyUsers, UsersNumber * sizeof(User));
@@ -197,22 +215,40 @@ void EditMember() {
 
     if (Results)
     {
+        free(MyUsers[I].LN);
+        free(MyUsers[I].FN);
+        free(MyUsers[I].BN);
+        free(MyUsers[I].Area);
+        free(MyUsers[I].gov);
+        free(MyUsers[I].phone);
+        free(MyUsers[I].age);
+        free(MyUsers[I].email);
+
         printf("Enter Last Name:");
-        MyUsers[I].LN = GetField();
+        while (!IsString(MyUsers[I].LN = GetField())){ free(MyUsers[I].LN); MyUsers[I].LN = GetField(); }
+
         printf("\nEnter First Name:");
-        MyUsers[I].FN = GetField();
+        while (!IsString(MyUsers[I].FN = GetField())){ free(MyUsers[I].FN); MyUsers[I].FN = GetField(); }
+
         printf("\nEnter Your Building Number:");
-        MyUsers[I].BN = GetField();
-        printf("\nEnter The Area Were You Live:");
-        MyUsers[I].Area = GetField();
-        printf("\nEnter Your Government:");
-        MyUsers[I].gov = GetField();
+        while (!IsNumber(MyUsers[I].BN = GetField())){ free(MyUsers[I].BN); MyUsers[I].BN = GetField();}
+
+        printf("\nEnter The Area:");
+        while (!IsString(MyUsers[I].Area = GetField())){ free(MyUsers[I].Area); MyUsers[I].Area = GetField(); }
+
+        printf("\nEnter Your City:");
+        while (!IsString(MyUsers[I].gov = GetField())){ free(MyUsers[I].gov); MyUsers[I].gov = GetField(); }
+
         printf("\nEnter Your Phone Number:");
+
         MyUsers[I].phone = GetField();
+        while (!IsNumber(MyUsers[I].phone) || strlen(MyUsers[I].phone) != 11){ free(MyUsers[I].phone); MyUsers[I].phone = GetField();}
+
         printf("\nEnter Your Age:");
-        MyUsers[I].age = GetField();
+        while (!IsNumber(MyUsers[I].age = GetField())){ free(MyUsers[I].age); MyUsers[I].age = GetField();}
+
         printf("\nEnter Your E_mail:");
-        MyUsers[I].email = GetField();
+        while (!IsEmail(MyUsers[I].email = GetField())){ free(MyUsers[I].email); MyUsers[I].email = GetField(); }
     }
     else
     {
@@ -575,6 +611,28 @@ DateStruct StringToDate(char *Date) {
     return Temp;
 }
 
+bool IsEmail(char *str) {
+
+    int At = 0,Dot = 0;
+    int NAt = 0, NDot = 0;
+
+
+    if(isdigit(str[0]) || str[0] == '@' || str[strlen(str) - 1] == '.'|| isdigit(str[strlen(str) - 1])) return false;
+
+    for (int I = 1; str[I] !='\0' ; I++)
+    {
+        if(!isdigit(str[I]) && !isalpha(str[I]) && str[I] !='_')
+        {
+            if(str[I] == '@') {NAt++; At = I; continue;}
+            if(str[I] == '.') {NDot++; Dot = I; continue;}
+            else return false;
+        }
+    }
+
+    if(NAt != 1 || NDot != 1 || At > Dot || Dot - At == 1 || Dot - At == 2 || (strlen(str) - 1) - Dot == 1 || At - 0 < 2) return false;
+
+    return true;
+}
 bool CMPDates(DateStruct Date1, DateStruct Date2) {
 
     if(Date1.yy > Date2.yy)
@@ -599,7 +657,6 @@ bool CMPDates(DateStruct Date1, DateStruct Date2) {
         }
     }
 }
-
 
 char *GetDate() {
 
@@ -679,6 +736,37 @@ char *DateToString(DateStruct InPut) {
     char *Date = malloc(20);
     sprintf(Date, "%d/%d/%d", InPut.dd, InPut.mm, InPut.yy);
     return Date;
+}
+
+void OverDue() {
+
+    printf("\n:: Overdue books ::\n");
+    printf("---------------------\n");
+
+    int Found = false;
+
+    if(BorrowsNumber != 0)
+    {
+        for (int I = 0; I < BorrowsNumber; ++I)
+        {
+            if(strcmp(MyBorrows[I].DateRet,"No") == 0)
+            {
+                if(CMPDates(GetToday(),StringToDate(MyBorrows[I].DateDue)))
+                {
+                    Found = true;
+                    printf("- %s, %s, %s, %s, No\n", MyBorrows[I].ISBN, MyBorrows[I].ID, MyBorrows[I].DateIss, MyBorrows[I].DateDue);
+                }
+            }
+        }
+
+        if(!Found) printf("There is no overdue books...!!\n");
+    }
+    else
+    {
+        printf("There is no borrows yet...!!");
+    }
+
+    Redirect();
 }
 
 

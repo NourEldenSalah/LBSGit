@@ -38,6 +38,7 @@ void Load_Borrow();
 void Load_User();
 void Save_Borrows();
 void Save_Mem();
+void OverDue();
 
 int UExist(char *Input);
 int GetNumOfBorrows(char *ISBN);
@@ -47,4 +48,6 @@ char *DateToString(DateStruct InPut);
 
 DateStruct StringToDate(char * Date);
 DateStruct GetToday();
+
+bool IsEmail(char *str);
 bool CMPDates(DateStruct Date1, DateStruct Date2);

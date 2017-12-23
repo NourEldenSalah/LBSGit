@@ -21,6 +21,7 @@ int BooksNum = 0;
 void GotoBook() {
 
     int Select = 0;
+    char *CSelect = NULL;
 
     printf("\n:::[Book Menu]:::\n\n");
     printf("1.Add New Book\n");
@@ -32,10 +33,18 @@ void GotoBook() {
     printf("------------------------\n");
 
 
-    while (Select != 1 && Select != 2 && Select != 3 && Select != 4 && Select != 5 && Select != 6) {
-        printf("Enter your choice: ");
-        scanf("%d", &Select);
-    }
+    printf("Enter your choice: ");
+
+    /* Validation */
+
+    Here:
+    CSelect = GetField();
+
+    while (!IsNumber(CSelect)) { free(CSelect); CSelect = GetField(); }
+    sscanf(CSelect, "%d", &Select);
+    while (Select <= 0 || Select > 6) { free(CSelect); goto Here; }
+
+    /******************************************************************/
 
     system("@cls||clear");
 
@@ -70,7 +79,7 @@ void CreateBook() {
     }
     ///////////////////////////////
     printf("\nEnter Date Of Publication (dd/mm/yy):");
-    B.DOP = GetField();
+    B.DOP = GetDate();
     printf("\nEnter Category:");
     B.Ca = GetField();
 
@@ -123,7 +132,7 @@ void AddCpy() {
         CNOC = GetField();
         while (!IsNumber(CNOC)) { free(CNOC); CNOC = GetField(); }
         sscanf(CNOC,"%d",&NOC);
-        while (NOC < 0 || NOC < GetNumOfBorrows(ISBN)) { free(CNOC); goto Here; }
+        while (NOC < GetNumOfBorrows(ISBN)) { free(CNOC); goto Here; }
 
         /********************************************************/
 
@@ -283,14 +292,20 @@ void Edit() {
 
     if (Results)
     {
+        free(MyBooks[I].Title);
+        free(MyBooks[I].Author);
+        free(MyBooks[I].Publisher);
+        free(MyBooks[I].DOP);
+        free(MyBooks[I].Ca);
+
         printf("\n\nEnter Book Title:");
         MyBooks[I].Title = GetField();
         printf("\nEnter Book Author:");
         MyBooks[I].Author = GetField();
         printf("\nEnter Publisher:");
         MyBooks[I].Publisher = GetField();
-        printf("\nEnter Date Of Publication:");
-        MyBooks[I].DOP = GetField();
+        printf("\nEnter Date Of Publication (dd/mm/yy):");
+        MyBooks[I].DOP = GetDate();
         printf("\nEnter Category:");
         MyBooks[I].Ca = GetField();
     }
@@ -337,6 +352,14 @@ int BExist(char *InPut, char Field) {
     return Found;
 }
 
+int GetBooksNumber(){
+    return BooksNum;
+}
+
+Book *GetBooks() {
+    return MyBooks;
+}
+
 char *GetField() {
 
     size_t I = 0;
@@ -364,14 +387,6 @@ char *GetField() {
     }
 
     return P;
-}
-
-Book *GetBooks() {
-    return MyBooks;
-}
-
-int GetBooksNumber(){
-    return BooksNum;
 }
 
 void Load_Books() {
@@ -446,50 +461,66 @@ void Save_B() {
 
 void POP() {
 
-    if( BooksNum >= 5 )
+    printf("\n:: Most Popular Books ::\n");
+    printf("--------------------------\n");
+
+    int I,J;
+    BorrowedBook Books[BooksNum], Temp;
+
+    for (I = 0; I < BooksNum; I++)
     {
-        int I,J;
-        BorrowedBook Books[BooksNum], Temp;
+        Books[I].ISBN = MyBooks[I].ISBN;
+        Books[I].NumOfBorrows = GetNumOfBorrows(Books[I].ISBN); /* Loops in Borrow array to get num of borrow */
+    }
 
-        for (I = 0; I < BooksNum; I++)
+    /* Bubble Sorting */
+    for (I = 0; I < BooksNum; I++)
+    {
+        for (J = 0; J < BooksNum - I; J++)
         {
-            Books[I].ISBN = MyBooks[I].ISBN;
-            Books[I].NumOfBorrows = GetNumOfBorrows(Books[I].ISBN); /* Loops in Borrow array to get num of borrow */
-        }
-
-        /* Bubble Sorting */
-        for (I = 0; I < BooksNum; I++)
-        {
-            for (J = 0; J < BooksNum - I; J++)
+            if (Books[J].NumOfBorrows < Books[J + 1].NumOfBorrows)
             {
-                if (Books[J].NumOfBorrows < Books[J + 1].NumOfBorrows)
-                {
-                    Temp.ISBN = Books[J + 1].ISBN;
-                    Temp.NumOfBorrows = Books[J + 1].NumOfBorrows;
+                Temp.ISBN = Books[J + 1].ISBN;
+                Temp.NumOfBorrows = Books[J + 1].NumOfBorrows;
 
-                    Books[J + 1].ISBN = Books[J].ISBN;
-                    Books[J + 1].NumOfBorrows = Books[J].NumOfBorrows;
+                Books[J + 1].ISBN = Books[J].ISBN;
+                Books[J + 1].NumOfBorrows = Books[J].NumOfBorrows;
 
-                    Books[J].ISBN = Temp.ISBN;
-                    Books[J].NumOfBorrows = Temp.NumOfBorrows;
-                }
-
+                Books[J].ISBN = Temp.ISBN;
+                Books[J].NumOfBorrows = Temp.NumOfBorrows;
             }
-        }
 
-        printf("\n:: Most Popular Books ::\n");
-        for (I = 0; I < 5; I++)
-        {
-            for (J = 0; J < BooksNum; J++)
-            {
-                if(strcmp(Books[I].ISBN, MyBooks[J].ISBN) == 0)
-                {
-                    printf("- %s\n", MyBooks[J].Title);
-                    break;
-                }
-            }
         }
     }
+
+    if(BooksNum >= 5)
+    {
+        if(Books[4].NumOfBorrows != 0)
+        {
+            for (I = 0; I < 5; I++)
+            {
+                for (J = 0; J < BooksNum; J++)
+                {
+                    if(strcmp(Books[I].ISBN, MyBooks[J].ISBN) == 0)
+                    {
+                        printf("- %s\n", MyBooks[J].Title);
+                        break;
+                    }
+                }
+            }
+        }
+        else
+        {
+            printf("There are some book not borrowed yet...!!\n");
+        }
+    }
+    else
+    {
+        printf("Number of books is less than 5...!!\n");
+    }
+
+
+    Redirect();
 }
 
 
